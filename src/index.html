@@ -44,13 +44,39 @@
             <div class="avsnitt">
 
             </div>
-            <footer class="foot"></footer>
+            <footer class="foot">
+                <p>Copyright Falk, Paul, Johnny A/S &#xA9; 1884-2099</p>
+            </footer>
         </div>
     </div>
 
     <aside class="sidebar">
         <div class="bestilling-wrapper">
-
+            <form name="bestilling"
+                  action=""
+                  onsubmit="return validerSkjema();"
+                  method="post">
+                <ul>
+                    <li><h3>Bestill reise</h3></li><hr>
+                    <li><input type="date" name="kalFra" id="inputKalFra">
+                        <label for="inputKalFra" class="kal-label"><img src="kalender.png" class="kalender"></label>
+                        <input type="date" name="kalTil" id="inputKalTil">
+                        <label for="inputKalTil" class="kal-label"><img src="kalender.png" class="kalender"></label>
+                        </li>
+                    <li><select name="dest" id="inputDest">
+                        <option value="default">Velg en destinasjon</option>
+                        <option value="aare">Åre</option>
+                        <option value="trysil">Trysil</option>
+                        <option value="hemsedal">Hemsedal</option>
+                    </select></li>
+                    <hr>
+                    <li><label for="inputReisende" class="label1">Reisende: </label></li>
+                    <li><label for="inputAndreBehov" class="label1">Andre behov: </label></li>
+                    <li><label for="inputOvernatting" class="label1">Overnatting</label></li>
+                    <hr>
+                    <li><input type="submit" value="Gå til betaling"></li>
+                </ul>
+            </form>
         </div>
     </aside>
 
