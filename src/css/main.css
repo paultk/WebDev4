@@ -64,7 +64,6 @@ hr {
 .bestilling-wrapper ul {
     text-align: left;
     margin: auto;
-    position: relative;
 }
 
 .bestilling-wrapper ul, li {
@@ -88,6 +87,7 @@ input[type="submit"] {
     min-height: 40px;
     font: 1.2em Helvetica, serif;
     font-weight: 100;
+    letter-spacing: 1px;
     padding :5px 15px;
     background: #946351; /*#664438*/
     color: #fff;
