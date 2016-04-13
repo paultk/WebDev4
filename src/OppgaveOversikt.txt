@@ -1,0 +1,99 @@
+Frister:
+UnderVeisRapport 8. april
+endelig innlevering(Kode og sluttrapport) 29 april
+
+vurdering:
+Følgende momenter blir tillagt vekt i forbindelse med vurdering av prosjektet (som er
+med på å bestemme karakteren i Webutvikling 1).
+ Prosess og deltakelse som fremgår av statusrapportene og sluttrapporten.
+ Designvalg: konsistens, navigasjon, struktur.
+ Kvalitet på nettstedets funksjonalitet.
+ Samspill mellom teknologiene i emnet Webutvikling 1.
+ Kvalitet på kode.
+ Kreativitet i løsningen.
+ Sluttrapportens innhold
+
+oppgaveOversikt:
+
+nettside:
+    -skireise til FORSKJELLIGE destinasjoner(implementere search box med autofill).
+    -beregne pris på reise(antall dogn, antall deltakere, standard paa overnatting, 20% avslag if(Er medlem av turistforeningen (oppgi turistforening mdl nr),
+        kunde nummer).
+    -oversikt over bakker og fasiliteter.
+    -kart med de forskjellige destinasjonene
+    -bilder, tekstlig beskrivelse av destinasjonene
+    -overnattingsalternativer og andre aktiviteter
+    -lenker til andre ressurser og liknende
+    -bruke medgitt link til php script for å validere skjemaet
+
+NB! det SKAL være mulig å legge inn en bestilling på en skireise.
+NB! nettsiden skal fungere på de fleste nettlesere
+
+Timeføring
+Dere skal føre timer på prosjektet med oversikt over hvem som har gjort hva til
+enhver tid. Det lønner seg å jobbe jevnt gjennom hele prosjektperioden. Før timer
+jevnlig. Dette skal være på formen
+Person: Antall timer. Aktivitet. Dato, klokkeslett start-klokkeslett slutt
+
+UnderveisRapport:
+
+    -maks 4 sider
+
+    -plan over oppbyggingen av nettstedet;
+        -hvilke standarder for kode, teknologier og liknende velger dere? gjerne med diskusjon og argumenter.
+        -Funksjonalitet og innhold på nettstedet
+        -begrunnelse for designvalg
+
+    -nettstedkart som viser sammenhengen mellom sider på nettstedet(se figur i pdf)
+    -plan for realiseringen, fordeling av arbeid videre framover
+    -oversiktlig oppsummering over tidsbruk for hver enkelt deltaker. Detaljene legger dere ved som eget dokument(timeføring)
+
+
+Endelig innlevering:
+
+(skal leveres en lenke til nettstedet og en zip med fullstendig kode)
+
+    SLUTTRAPPORT maks 8 sider:
+        -en forklaring (med skisse) av hvordan nettstedet er bygd opp og fungerer
+        -begrunnelse for valgt design, funksjonalitetm underliggende struktur og liknende
+        -mulig fremtidige utvidelser hvis dere hadde hatt tid
+        -kort beskrivelse av hvordan dere har jobbet og hva dere evt ville gjort annerledes i et kommende prosjekt
+        -ting i løsningen som dere vil fremheve som spesielt bra
+        -kort liste over hvilke verktøy dere har brukt
+        oppsummering over totalt for hver enkelt deltaker og for hele gruppen. Detaljene legges i eget dokument(se timeføring avsnitt.)
+
+
+Vurdering
+Følgende momenter blir tillagt vekt i forbindelse med vurdering av prosjektet (som er
+med på å bestemme karakteren i Webutvikling 1).
+ Prosess og deltakelse som fremgår av statusrapportene og sluttrapporten.
+ Designvalg: konsistens, navigasjon, struktur.
+ Kvalitet på nettstedets funksjonalitet.
+ Samspill mellom teknologiene i emnet Webutvikling 1.
+ Kvalitet på kode.
+ Kreativitet i løsningen.
+ Sluttrapportens innhold.
+I utgangspunktet får alle på gruppen samme karakter, men individuell vurdering kan
+bli aktuelt dersom arbeidsinnsatsen internt i gruppen har vært skjevt fordelt. Det er viktig
+at gruppen tar tak i denne typen problemstillinger tidlig, og evt. melder fra til faglærer.
+For karakteren A eller B legges det ekstra vekt på:
+ Kommentert kode som følger standardene.
+ Tydelig tredeling mellom HTML, CSS og JavaScript.
+ Nettstedets oppbygning og navigerbarhet.
+ Gode begrunnelser for valgte løsninger.
+ Nivå på CSS-kode og JavaScript-kode
+ Design av skjema, validering av data og feilmeldinger.
+ Testing av nettsiden på ulike nettlesere.
+ Kreativitet i forbindelse med bruk av eksternt innhold (interaktivt kart, RSS/SVG,
+video, værvarsel etc.)
+
+
+
+todo:
+I informasjon om en destinasjon skal det medfølge et kart over bakker og tilhørende hytter i den bakken/område
+
+
+
+
+
+
