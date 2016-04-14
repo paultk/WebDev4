@@ -88,11 +88,11 @@ input[type="submit"] {
     font: 1.2em Helvetica, serif;
     font-weight: 100;
     letter-spacing: 1px;
-    padding :5px 15px;
+    padding: 5px 15px;
     background: #946351; /*#664438*/
     color: #fff;
     border: 1px solid #000;
-    cursor:pointer;
+    cursor: pointer;
     border-radius: 5px;
 }
 
@@ -184,7 +184,7 @@ input[type="submit"]:hover {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 131px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Links inside the dropdown */
@@ -197,7 +197,9 @@ input[type="submit"]:hover {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #b5cbf8}
+.dropdown-content a:hover {
+    background-color: #b5cbf8
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -218,22 +220,33 @@ footer p {
     padding-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Paul */
 
 .hide {
     display: none;
 }
 
+#hytteAlbum {
+    background-image: url("Images/hytte1.jpg");
+    width: 259px;
+    height: 194px;
+}
+
+.item {
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.hytteBilder {
+    flex-direction: row;
+    height: 200px;
+    width: 200px;
+}
+
+.hytteBilderClicked{
+
+}

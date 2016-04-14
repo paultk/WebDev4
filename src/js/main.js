@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function () {
+
 
     var traveller1 = null;
     var traveller2 = null;
@@ -13,13 +14,12 @@ $(document).ready(function(){
     var travellerSelector = document.getElementById("travellerSelector");
 
 
-
     var firstDiv = document.getElementById("reisende");
 
-    var amountOfTravellersVariable =  1;
-    $("#amountPlus").click(function(){
-        if(amountOfTravellersVariable == 9){
-        }else {
+    var amountOfTravellersVariable = 1;
+    $("#amountPlus").click(function () {
+        if (amountOfTravellersVariable == 9) {
+        } else {
             amountOfTravellersVariable++;
             $("#amountOfPassengers:text").val(amountOfTravellersVariable);
             $("#travellerSelector" + amountOfTravellersVariable).show();
@@ -29,9 +29,9 @@ $(document).ready(function(){
         ;
     });
 
-    $("#amountMinus").click(function(){
-        if(amountOfTravellersVariable == 1){
-        }else {
+    $("#amountMinus").click(function () {
+        if (amountOfTravellersVariable == 1) {
+        } else {
             console.log(amountOfTravellersVariable);
             amountOfTravellersVariable--;
             $("#amountOfPassengers:text").val(amountOfTravellersVariable);
@@ -40,5 +40,60 @@ $(document).ready(function(){
         }
         ;
     });
+
+    /*Overnatting, hyttebilder*/
+
+    var imageVariable = 1;
+
+
+    $("#previousPicture").click(function () {
+        if (imageVariable == 1) {
+            imageVariable = 5
+        }
+        imageVariable--;
+        var element = document.getElementById("hytteAlbum");
+        var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
+        element.setAttribute('style', 'background: url(' + imageUrl + ');');
+    });
+
+    $("#nextPicture").click(function () {
+        imageVariable++;
+        var element = document.getElementById("hytteAlbum");
+        var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
+        element.setAttribute('style', 'background: url(' + imageUrl + ');');
+    });
+
+    $(".hytteBilderClicked").click(function () {
+        console.log(this.id);
+
+        var txt = "";
+        $.ajax({
+            type: "GET",
+            url: "filmer.xml",
+            dataType: "xml",
+            success: function (xml) {
+                txt += "<table border=1>";
+                $(xml).find('film').each(function () {
+                    txt += "<tr><td>" + $(this).find("tittel").text() +
+                        "</td><td>" + $(this).find("aar").text() +
+                        "</td><td>" + $(this).find("regissor").text() +
+                        "</td></tr>";
+                });
+                txt += "</table>";
+                console.log(txt);
+                $(".main").after(function () {
+                    return "<div>" + this.className + "</div>"
+
+                });
+                
+            }
+
+        });
+
+
+    })
 });
+
+
+
 
