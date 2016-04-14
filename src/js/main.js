@@ -65,27 +65,23 @@ $(document).ready(function () {
 
     $(".hytteBilderClicked").click(function () {
         console.log(this.id);
-
+        var chosenCabin = this.id;
         var txt = "";
         $.ajax({
             type: "GET",
-            url: "filmer.xml",
+            url: "hytter.xml",
             dataType: "xml",
             success: function (xml) {
-                txt += "<table border=1>";
-                $(xml).find('film').each(function () {
-                    txt += "<tr><td>" + $(this).find("tittel").text() +
-                        "</td><td>" + $(this).find("aar").text() +
-                        "</td><td>" + $(this).find("regissor").text() +
-                        "</td></tr>";
+                txt += "<div id='hytteValgt'><table border=1>";
+                $(xml).find(chosenCabin).each(function () {
+                    txt += "<h1>" + $(this).find("navn").text() +
+                        "</h1><div>" + $(this).find("info").text() +
+                        "</div></div>";
                 });
                 txt += "</table>";
                 console.log(txt);
-                $(".main").after(function () {
-                    return "<div>" + this.className + "</div>"
+                $("#hytteValgt").replaceWith(txt);
 
-                });
-                
             }
 
         });

@@ -12,10 +12,17 @@
     <script src="js/main.js"></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
 
 </head>
 <body>
 
+
+
+
+    <a href="#deReisende" rel="modal:open">Login</a>
+    <a href="index.html" rel="modal:open">Login</a>
 
     <div id="reisende">
         <p>Reisende:</p>
@@ -138,21 +145,21 @@
         </select>
         <div class="container">
 
-                <div id="hytte1" class="item, hytteBilderClicked" >
-                    <h1>Hemsedal</h1>
-                    <img src="css/Images/hytte1.jpg"/>
-                </div>
-                <div id="hytte2" class="item, hytteBilderClicked">
-                    <h1>Åre</h1>
-                    <img src="css/Images/hytte2.jpg"/>
-                </div>
-                <div id="hytte3" class="item, hytteBilderClicked">
-                    <h1>Trysil</h1>
-                    <img src="css/Images/hytte3.jpg"/>
-                </div>
+            <div id="hytte1" class="item, hytteBilderClicked">
+                <h1>Hemsedal</h1>
+                <img src="css/Images/hytte1.jpg"/>
+            </div>
+            <div id="hytte2" class="item, hytteBilderClicked">
+                <h1>Åre</h1>
+                <img src="css/Images/hytte2.jpg"/>
+            </div>
+            <div id="hytte3" class="item, hytteBilderClicked">
+                <h1>Trysil</h1>
+                <img src="css/Images/hytte3.jpg"/>
+            </div>
         </div>
 
-        <div class="container" >
+        <div class="container">
             <button id="previousPicture" type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-minus"></span>
             </button>
@@ -170,15 +177,17 @@
                     <option value="Ekskludert">Laken eksludert</option>
                 </select>
             </form>
+            <div
+            <>
+            <div id="hytteValgt">sdfsdffsdfsd</div>
+
             <button>Velg denne hytten</button>
-
-
-
-
         </div>
+
 
     </div>
 
+    </div>
 
 
 </body>

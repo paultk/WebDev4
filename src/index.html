@@ -1,23 +1,32 @@
 <!doctype html>
 <html class="no-js" lang="no">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/main.js"></script>
-        <script src="js/plugins.js"></script>
-    </head>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+    <script src="js/plugins.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen"/>
+    <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
 
-    <body>
+</head>
 
+<body>
 
 
     <div class="wrapper">
@@ -27,16 +36,26 @@
                 <nav class="navigation">
                     <div class="nav">
                         <ul>
-                            <li><div class="dropdown">
-                                <button class="btn">Destinasjoner</button>
-                                <div class="dropdown-content">
-                                    <a href="aare.html">Åre</a>
-                                    <a href="trysil.html">Trysil</a>
-                                    <a href="hemsedal.html">Hemsedal</a>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn">Destinasjoner</button>
+                                    <div class="dropdown-content">
+                                        <a href="aare.html">Åre</a>
+                                        <a href="trysil.html">Trysil</a>
+                                        <a href="hemsedal.html">Hemsedal</a>
+                                    </div>
                                 </div>
-                            </div></li>
-                            <li><div class="dropdown"><button class="btn">Priser</button></div></li>
-                            <li><div class="dropdown"><button class="btn">Om oss</button></div></li>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn">Priser</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn">Om oss</button>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -53,7 +72,6 @@
     </div>
 
 
-
     <aside class="sidebar">
         <div class="bestilling-wrapper">
             <form name="bestilling"
@@ -61,12 +79,13 @@
                   onsubmit="return validerSkjema();"
                   method="post">
                 <ul>
-                    <li><h3>Bestill reise</h3></li><hr>
+                    <li><h3>Bestill reise</h3></li>
+                    <hr>
                     <li><input type="date" name="kalFra" id="inputKalFra">
                         <label for="inputKalFra" class="kal-label"><img src="kalender.png" class="kalender"></label>
                         <input type="date" name="kalTil" id="inputKalTil">
                         <label for="inputKalTil" class="kal-label"><img src="kalender.png" class="kalender"></label>
-                        </li>
+                    </li>
                     <li><select name="dest" id="inputDest">
                         <option value="default">Velg en destinasjon</option>
                         <option value="aare">Åre</option>
@@ -74,16 +93,23 @@
                         <option value="hemsedal">Hemsedal</option>
                     </select></li>
                     <hr>
-                    <li><label for="inputReisende" class="label1">Reisende: </label></li>
-                    <li><label for="inputAndreBehov" class="label1">Andre behov: </label></li>
-                    <li><label for="inputOvernatting" class="label1">Overnatting</label></li>
+                    <li><label for="inputReisende" class="label1">Reisende: </label>
+                        <a href="Reisende.html" rel="modal:open">Endre reisende</a>
+                    </li>
+                    <li><label for="inputAndreBehov" class="label1">Andre behov: </label>
+                        <a href="andreBehov.html" rel="modal:open">Endre andre behov</a>
+                    </li>
+                    <li><label for="inputOvernatting" class="label1">Overnatting</label>
+                        <a href="Overnatting.html" rel="modal:open">Login</a>
+                    </li>
                     <hr>
-                    <li><input type="submit" value="Gå til betaling"></li>
+                    <li><input type="submit" value="Gå til betaling">
+                    </li>
                 </ul>
             </form>
         </div>
     </aside>
 
 
-    </body>
+</body>
 </html>
