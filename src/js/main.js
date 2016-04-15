@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
 
@@ -85,8 +86,19 @@ $(document).ready(function () {
             }
 
         });
-
-
+    })
+    $(".tilleggsvalg").change(function(){
+        var sum = 0;
+        if ($("#laken").is(':checked')) {
+            sum += 40;
+        }
+        if ($("#instruktor").is(':checked')) {
+            sum += 500;
+        }
+        if ($("#heiskort").is(':checked')) {
+            sum += 250;
+        }
+        $("#sumlabel").text("Sum: " + sum + "kr");
     })
 });
 
