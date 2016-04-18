@@ -6,9 +6,12 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="js/js.cookie.js"></script>
+        <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/main.css">
@@ -34,8 +37,16 @@
                                     <a href="hemsedal.html">Hemsedal</a>
                                 </div>
                             </div></li>
-                            <li><div class="dropdown"><button class="btn">Priser</button></div></li>
-                            <li><div class="dropdown"><button class="btn">Om oss</button></div></li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn" onclick="location.href='priser.html';">Priser</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn" onclick="location.href='about.html';">Om oss</button>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -55,7 +66,7 @@
     <div class="order-row">
         <div class="bestilling-wrapper">
             <form name="bestilling"
-                  action=""
+                  action="bestilling.html"
                   onsubmit="return validerSkjema();"
                   method="post">
                 <ul class="bestilling-liste">
@@ -171,8 +182,18 @@
 
         <div class="content-shower" id="overnatting-box-wrapper">
             <div class="overnatting-box" id="overnatting">
-                <h3>Overnatting:</h3>
-                <hr>
+                <div id="tabs">
+                    <h3>Overnatting:</h3>
+                    <hr>
+                    <ul>
+                        <li><a href="#tabs-1"><img src="hytte1.jpg"></a></li>
+                        <li><a href="#tabs-2"><img src="hytte2.jpg"></a></li>
+                        <li><a href="#tabs-3">Hytte 3</a></li>
+                    </ul>
+
+                    <div id="tabs-1"><p>Hallo</p></div>
+                    <div id="tabs-2"><p>Hei</p></div>
+                </div>
             </div>
         </div>
 

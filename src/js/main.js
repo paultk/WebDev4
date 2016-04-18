@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    var struktur = {};
+
     //Input[type=date] endringer
 
     var today = new Date();
@@ -20,7 +22,22 @@ $(document).ready(function(){
     $("#inputKalFra").prop("min", today);
     $("#inputKalTil").prop("min", tomorrow);
 
+    struktur.fraReise = today;
+    struktur.tilReise = tomorrow;
+
+    $("#inputKalFra").on("input", function () {
+        struktur.fraReise = document.getElementById("inputKalFra").value;
+        console.log(struktur.fraReise + ", " + struktur.tilReise);
+    });
+
+    $("#inputKalTil").on("input", function () {
+        struktur.tilReise = document.getElementById("inputKalTil").value;
+        console.log(struktur.fraReise + ", " + struktur.tilReise);
+    });
+
     //Avslutt Input[type=date] endringer
+
+    //Vise/skjule endre-vinduer
 
     $(".content-shower").hide();
 
@@ -39,7 +56,14 @@ $(document).ready(function(){
         //$(".bestilling-wrapper").toggleClass("disableWindow");
     });
 
+    //Avslutt kode for vise/skjule endre-vinduer
+
     //Kode for å endre antall reisende
+
+    struktur.voksen = 0;
+    struktur.barn = 0;
+    struktur.honnor = 0;
+    struktur.student = 0;
 
     var liste = ["travellerSelector1", "travellerSelector2", "travellerSelector3",
         "travellerSelector4", "travellerSelector5", "travellerSelector6",
@@ -47,29 +71,30 @@ $(document).ready(function(){
 
     for (var i = 0; i < liste.length; i++) {
         if (i != 0) {
-            $("#travellerSelector" + i).hide();
+            $("#travellerSelector" + (i+1)).hide();
+            console.log(i);
         }
     }
 
-    var antReisende = 0;
-    var originaltAntReisende = 0;
+    var antReisende = 1;
+    var originaltAntReisende = 1;
 
 
-    $("#amountOfPassengers:text").val(antReisende + 1);
+    $("#amountOfPassengers:text").val(antReisende);
 
     $("#amountPlus").click(function () {
-        if (antReisende < 8) {
+        if (antReisende < 9) {
             antReisende++;
-            $("#travellerSelector" + antReisende).show();
-            $("#amountOfPassengers:text").val(antReisende + 1);
+            $("#travellerSelector" + (antReisende)).show();
+            $("#amountOfPassengers:text").val(antReisende);
         }
     });
 
     $("#amountMinus").click(function () {
-        if (antReisende > 0) {
+        if (antReisende > 1) {
             $("#travellerSelector" + antReisende).hide();
             antReisende--;
-            $("#amountOfPassengers:text").val(antReisende + 1);
+            $("#amountOfPassengers:text").val(antReisende);
         }
     });
 
@@ -77,11 +102,32 @@ $(document).ready(function(){
         originaltAntReisende = antReisende;
         $("#reisende-box-wrapper").slideToggle();
         $(".bestilling-wrapper").toggleClass("disableWindow");
-        if (antReisende == 0) {
+        if (antReisende == 1) {
             $("#reisendeLabel").text("1 person");
         } else {
-            $("#reisendeLabel").text((antReisende + 1) + " personer");
+            $("#reisendeLabel").text(antReisende + " personer");
         }
+
+        struktur.voksen = 0;
+        struktur.barn = 0;
+        struktur.honnor = 0;
+        struktur.student = 0;
+
+        for (var i = 0; i <= antReisende; i++) {
+            if ($("#travellerSelector" + (i)).val() == "Voksen") {
+                struktur.voksen++;
+            } else if ($("#travellerSelector" + i).val() == "Barn") {
+                struktur.barn++;
+            } else if ($("#travellerSelector" + i).val() == "Honnør") {
+                struktur.honnor++;
+            } else if ($("#travellerSelector" + i).val() == "Student") {
+                struktur.student++;
+            }
+        }
+        console.log("Voksen: " + struktur.voksen);
+        console.log("Barn: " + struktur.barn);
+        console.log("Honnør: " + struktur.honnor);
+        console.log("Student: " + struktur.student);
     });
 
     $("#avbrytReisende").click(function () {
@@ -93,9 +139,9 @@ $(document).ready(function(){
                 }
             }
 
-            for (var i = -1; i < antReisende; i++) {
+            for (var i = 0; i < antReisende; i++) {
                 $("#travellerSelector" + (i + 1)).show();
-                $("#amountOfPassengers:text").val(i + 2);
+                $("#amountOfPassengers:text").val(i + 1);
             }
         });
         $(".bestilling-wrapper").toggleClass("disableWindow");
@@ -108,26 +154,33 @@ $(document).ready(function(){
     $("#rullestolLabel").hide();
     $("#kjaeledyrlLabel").hide();
 
-    var rChecked = 0;
-    var kChecked = 0;
+    var rChecked = false;
+    var kChecked = false;
+
+    struktur.rullestol = false;
+    struktur.kjaeledyr = false;
 
     $("#okBehov").click(function () {
         $("#andre-behov-wrapper").slideToggle();
 
         if (document.getElementById("cbRullestol").checked) {
             $("#rullestolLabel").show();
-            rChecked = 1;
+            rChecked = true;
+            struktur.rullestol = true;
         } else {
             $("#rullestolLabel").hide();
-            rChecked = 0;
+            rChecked = false;
+            struktur.rullestol = false;
         }
 
         if (document.getElementById("cbKjaeledyr").checked) {
             $("#kjaeledyrlLabel").show();
-            kChecked = 1;
+            kChecked = true;
+            struktur.kjaeledyr = true;
         } else {
             $("#kjaeledyrlLabel").hide();
-            kChecked = 0;
+            kChecked = false;
+            struktur.kjaeledyr = false;
         }
 
         $(".bestilling-wrapper").toggleClass("disableWindow");
@@ -151,5 +204,11 @@ $(document).ready(function(){
     });
 
     //Avslutt kode for andre behov
+
+    //Oppretter tabs
+
+    $(function () {
+       $("#tabs").tabs();
+    });
 });
 
