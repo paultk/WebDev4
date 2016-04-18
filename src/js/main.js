@@ -124,6 +124,13 @@ $(document).ready(function(){
                 struktur.student++;
             }
         }
+        sessionStorage.setItem("voksen", struktur.voksen);
+        sessionStorage.setItem("barn", struktur.barn);
+        sessionStorage.setItem("honnor", struktur.honnor);
+        sessionStorage.setItem("student", struktur.student);
+
+
+
         console.log("Voksen: " + struktur.voksen);
         console.log("Barn: " + struktur.barn);
         console.log("Honnør: " + struktur.honnor);
@@ -210,5 +217,20 @@ $(document).ready(function(){
     $(function () {
        $("#tabs").tabs();
     });
+    $(".tilleggsvalg").change(function(){
+        var sum = 0;
+        if ($("#laken").is(':checked')) {
+            sum += 40;
+        }
+        if ($("#instruktor").is(':checked')) {
+            sum += 500;
+        }
+        if ($("#heiskort").is(':checked')) {
+            sum += 250;
+        }
+        $("#sumlabel").text("Sum: " + sum + "kr");
+    });
+    $("#sumlabel").replaceWith("Voksne: " + sessionStorage.getItem("voksen") + "<br>Barn: " + sessionStorage.getItem("barn") +
+    "<br>Honnører: " + sessionStorage.getItem("honnor") + "<br>Studenter: " + sessionStorage.getItem("student"));
 });
 
