@@ -14,188 +14,49 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
-
 </head>
 <body>
-
-
-
-
-    <a href="#deReisende" rel="modal:open">Login</a>
-    <a href="index.html" rel="modal:open">Login</a>
-
-    <div id="reisende">
-        <p>Reisende:</p>
-
-        <p>
-            <button id="amountMinus" type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-
-            <input id="amountOfPassengers" name="passengers" type="text" min="1" max="9" value="1" disabled>
-            <button type="button" class="btn btn-default btn-sm">
-                <span id="amountPlus" class="glyphicon glyphicon-plus"></span>
-            </button>
-
-        <form id="deReisende">
-            <div id="travellerSelectorDiv">
-                <select name="person1" id="travellerSelector1">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person2" id="travellerSelector2">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person3" id="travellerSelector3">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person4" id="travellerSelector4">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person5" id="travellerSelector5">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person6" id="travellerSelector6">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person7" id="travellerSelector7">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person8" id="travellerSelector8">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-                <select name="person9" id="travellerSelector9">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Barn">Barn</option>
-                    <option value="Honnør">Honnør</option>
-                    <option value="Student">Student</option>
-                </select>
-
-
-            </div>
-        </form>
-        <button>Ok</button>
-        <button>Avbryt</button>
+<div>
+    <select name="bakkeValg" id="bakkePosisjon">
+        <option value="Voksen">Toppen</option>
+        <option value="Barn">Midten</option>
+        <option value="Honnør">Bunn</option>
+    </select>
+    <div class="container">
+        <div id="hytte1" class="item, hytteBilderClicked">
+            <h1>Hemsedal</h1>
+            <img src="css/Images/hytte1.jpg"/>
+        </div>
+        <div id="hytte2" class="item, hytteBilderClicked">
+            <h1>Åre</h1>
+            <img src="css/Images/hytte2.jpg"/>
+        </div>
+        <div id="hytte3" class="item, hytteBilderClicked">
+            <h1>Trysil</h1>
+            <img src="css/Images/hytte3.jpg"/>
+        </div>
     </div>
-
-
-    <!-- Andre behov: -->
-
-    <div>
+    <div class="container">
+        <button id="previousPicture" type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+        <div id="hytteAlbum">
+        </div>
+        <button type="button" class="btn btn-default btn-sm">
+            <span id="nextPicture" class="glyphicon glyphicon-plus"></span>
+        </button>
         <form>
-
-            <div class="checkbox">
-                <label>
-                    Kjæledyr
-                    <br>
-                    <input type="checkbox" data-toggle="toggle">
-                </label>
-            </div>
-            <div class="checkbox disabled">
-                <label>
-                    Rullestol
-                    <br>
-                    <input type="checkbox" data-toggle="toggle">
-                </label>
-            </div>
-
-            <label for="switch">Rullestol</label>
-            <input type="checkbox" data-role="flipswitch" name="switch" id="rullestolSwitch">
-            <br>
-            <label for="switch">Kjæledyr</label>
-            <input type="checkbox" data-role="flipswitch" name="switch" id="petSwitch">
+            <select name="Laken" id="lakenValg">
+                <option value="Inkludert">Laken inkludert</option>
+                <option value="Ekskludert">Laken eksludert</option>
+            </select>
         </form>
-        <button>Ok</button>
-        <button>Avbryt</button>
+        <div
+        <>
+        <div id="hytteValgt">sdfsdffsdfsd</div>
+        <button>Velg denne hytten</button>
     </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-        <select name="bakkeValg" id="bakkePosisjon">
-            <option value="Voksen">Toppen</option>
-            <option value="Barn">Midten</option>
-            <option value="Honnør">Bunn</option>
-        </select>
-        <div class="container">
-
-            <div id="hytte1" class="item, hytteBilderClicked">
-                <h1>Hemsedal</h1>
-                <img src="css/Images/hytte1.jpg"/>
-            </div>
-            <div id="hytte2" class="item, hytteBilderClicked">
-                <h1>Åre</h1>
-                <img src="css/Images/hytte2.jpg"/>
-            </div>
-            <div id="hytte3" class="item, hytteBilderClicked">
-                <h1>Trysil</h1>
-                <img src="css/Images/hytte3.jpg"/>
-            </div>
-        </div>
-
-        <div class="container">
-            <button id="previousPicture" type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-            <div id="hytteAlbum">
-
-            </div>
-
-            <button type="button" class="btn btn-default btn-sm">
-                <span id="nextPicture" class="glyphicon glyphicon-plus"></span>
-            </button>
-
-            <form>
-                <select name="Laken" id="lakenValg">
-                    <option value="Inkludert">Laken inkludert</option>
-                    <option value="Ekskludert">Laken eksludert</option>
-                </select>
-            </form>
-            <div
-            <>
-            <div id="hytteValgt">sdfsdffsdfsd</div>
-
-            <button>Velg denne hytten</button>
-        </div>
-
-
-    </div>
-
-    </div>
-
-
+</div>
+</div>
 </body>
 </html>
-
-<!--   <p>Plus icon on a button:
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-plus"></span> Plus
-        </button>
-      </p>
-      -->

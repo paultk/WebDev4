@@ -1,33 +1,23 @@
 <!doctype html>
 <html class="no-js" lang="no">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/main.css">
+       <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+        <script src="js/main.js"></script>
+        <script src="js/plugins.js"></script>
+    </head>
 
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js"></script>
-    <script src="js/plugins.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js"></script>
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen"/>
-    <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
-
-</head>
-
-<body>
-
+    <body>
 
     <div class="wrapper">
         <div class="header-wrapper">
@@ -36,26 +26,16 @@
                 <nav class="navigation">
                     <div class="nav">
                         <ul>
-                            <li>
-                                <div class="dropdown">
-                                    <button class="btn">Destinasjoner</button>
-                                    <div class="dropdown-content">
-                                        <a href="aare.html">Åre</a>
-                                        <a href="trysil.html">Trysil</a>
-                                        <a href="hemsedal.html">Hemsedal</a>
-                                    </div>
+                            <li><div class="dropdown">
+                                <button class="btn">Destinasjoner</button>
+                                <div class="dropdown-content">
+                                    <a href="aare.html">Åre</a>
+                                    <a href="trysil.html">Trysil</a>
+                                    <a href="hemsedal.html">Hemsedal</a>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="dropdown">
-                                    <button class="btn" onclick="location.href='priser.html';">Priser</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dropdown">
-                                    <button class="btn" onclick="location.href='about.html';">Om oss</button>
-                                </div>
-                            </li>
+                            </div></li>
+                            <li><div class="dropdown"><button class="btn">Priser</button></div></li>
+                            <li><div class="dropdown"><button class="btn">Om oss</button></div></li>
                         </ul>
                     </div>
                 </nav>
@@ -66,50 +46,137 @@
 
             </div>
             <footer class="foot">
-                <p>Copyright Falk, Paul, Johnny A/S &#xA9; 1884-2099</p>
+                <!--<p>Copyright Falk, Paul, Johnny A/S &#xA9; 1884-2099</p>-->
             </footer>
         </div>
     </div>
 
 
-    <aside class="sidebar">
+    <div class="order-row">
         <div class="bestilling-wrapper">
             <form name="bestilling"
-                  action="bestilling.html"
+                  action=""
                   onsubmit="return validerSkjema();"
                   method="post">
-                <ul>
-                    <li><h3>Bestill reise</h3></li>
-                    <hr>
-                    <li><input type="date" name="kalFra" id="inputKalFra">
+                <ul class="bestilling-liste">
+                    <li><h3>Bestill reise</h3></li><hr>
+                    <li><input type="date" name="kalFra" id="inputKalFra" class="datovelger">
                         <label for="inputKalFra" class="kal-label"><img src="kalender.png" class="kalender"></label>
-                        <input type="date" name="kalTil" id="inputKalTil">
+                        <input type="date" name="kalTil" id="inputKalTil" class="datovelger">
                         <label for="inputKalTil" class="kal-label"><img src="kalender.png" class="kalender"></label>
-                    </li>
+                        </li>
                     <li><select name="dest" id="inputDest">
-                        <option value="default">Velg en destinasjon</option>
-                        <option value="aare">Åre</option>
-                        <option value="trysil">Trysil</option>
-                        <option value="hemsedal">Hemsedal</option>
+                            <option value="default">Velg en destinasjon</option>
+                            <option value="aare">Åre</option>
+                            <option value="trysil">Trysil</option>
+                            <option value="hemsedal">Hemsedal</option>
                     </select></li>
                     <hr>
-                    <li><label for="inputReisende" class="label1">Reisende: </label>
-                        <a href="Reisende.html" rel="modal:open">Endre reisende</a>
-                    </li>
-                    <li><label for="inputAndreBehov" class="label1">Andre behov: </label>
-                        <a href="andreBehov.html" rel="modal:open">Endre andre behov</a>
-                    </li>
-                    <li><label for="inputOvernatting" class="label1">Overnatting</label>
-                        <a href="Overnatting.html" rel="modal:open">Login</a>
-                    </li>
+                    <li><label>Reisende: </label><span class="bold"><label id="reisendeLabel"></label></span><a href="#" id="endreReisende" class="endreKnapp">Endre</a></li>
+                    <li><label>Andre behov: </label><a href="#" id="endreAndreBehov" class="endreKnapp">Endre</a><br>
+                        <span class="bold"><label id="rullestolLabel">Rullestol </label><label id="kjaeledyrlLabel">Kjæledyr</label></span></li>
+                    <li><label>Overnatting: </label><a href="#" id="endreOvernatting" class="endreKnapp">Endre</a></li>
                     <hr>
-                    <li><input type="submit" value="Gå til betaling">
-                    </li>
+                    <li><input type="submit" value="Gå til betaling"></li>
                 </ul>
             </form>
         </div>
-    </aside>
 
+        <div class="content-shower" id="reisende-box-wrapper">
+            <div class="reisende-box" id="reisende">
+                <h3>Reisende:</h3>
+                <hr>
+                <div class="reisendeTeller">
+                    <button id="amountMinus" type="button" class="reisendeKnapp">-</button>
+                    <input id="amountOfPassengers" name="passengers" type="text" disabled>
+                    <button id="amountPlus" type="button" class="reisendeKnapp">+</button>
+                </div>
+                <div>
+                    <div id="travellerSelectorDiv">
+                        <select name="person1" id="travellerSelector1" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person2" id="travellerSelector2" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person3" id="travellerSelector3" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person4" id="travellerSelector4" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person5" id="travellerSelector5" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person6" id="travellerSelector6" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person7" id="travellerSelector7" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person8" id="travellerSelector8" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <select name="person9" id="travellerSelector9" class="tSList">
+                            <option value="Voksen">Voksen</option>
+                            <option value="Barn">Barn</option>
+                            <option value="Honnør">Honnør</option>
+                            <option value="Student">Student</option>
+                        </select>
+                        <br>
+                        <button id="okReisende" class="svartKnapp">Ok</button>
+                        <button id="avbrytReisende" class="svartKnapp">Avbryt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</body>
+        <div class="content-shower" id="andre-behov-wrapper">
+            <div class="andre-behov-box" id="andreBehov">
+                <h3>Andre behov:</h3>
+                <hr>
+                <div>
+                    <input type="checkbox" value="rullestol" id="cbRullestol">Rullestol
+                    <input type="checkbox" value="kjaeledyr" id="cbKjaeledyr">Kjæledyr
+                    <br>
+                    <button id="okBehov" class="svartKnapp">Ok</button>
+                    <button id ="avbrytBehov" class="svartKnapp">Avbryt</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-shower" id="overnatting-box-wrapper">
+            <div class="overnatting-box" id="overnatting">
+                <h3>Overnatting:</h3>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+
+    </body>
 </html>

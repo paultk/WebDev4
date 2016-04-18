@@ -50,12 +50,19 @@ hr {
 
 }
 
+.order-row {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
 .bestilling-wrapper {
     background-color: #b3d4fc;
     border: 2px outset;
     border-radius: 8px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
-    width: 33%;
+    width: 28%;
     height: 40%;
     margin-left: 10%;
     margin-top: 2%;
@@ -64,18 +71,129 @@ hr {
 .bestilling-wrapper ul {
     text-align: left;
     margin: auto;
+    padding: 0;
 }
 
-.bestilling-wrapper ul, li {
+.bestilling-wrapper ul li {
     list-style: none;
     display: block;
     padding: 10px;
     margin: 5px;
 }
 
+.endreKnapp {
+    float: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+.content-shower {
+    background-color: #87614f;
+    border: 2px inset;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    width: 40%;
+    height: 90%;
+    padding: 10px;
+    margin-top: 2%;
+    margin-left: 20px;
+}
+
+#andre-behov-wrapper {
+    width: auto;
+}
+
+#andre-behov-wrapper .svartKnapp {
+    width: 45%;
+    margin: 10px 3px 3px 3px;
+    font-size: 0.8em;
+}
+
+#amountOfPassengers {
+    width: 20%;
+    padding: 7px 7px 7px 7px;
+    margin: 10px;
+    font: 1em Helvetica, serif;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.svartKnapp {
+    background-color: #333333;
+    border-radius: 4px;
+    width: 20%;
+    font: 1em Helvetica, serif;
+    margin: 10px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.svartKnapp:hover {
+    background-color: #cccccc;
+    color: black;
+}
+
+.svartKnapp:active {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.reisendeKnapp {
+    background-color: #333333;
+    border-radius: 4px;
+    font: 1.1em Helvetica, serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    width: auto;
+    height: 50px;
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.reisendeKnapp:hover {
+    background-color: #cccccc;
+    color: black;
+}
+
+.reisendeKnapp:active {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.tSList {
+    width: 45%;
+    padding: 7px 7px 7px 7px;
+    margin: 10px;
+    font: 0.8em Helvetica, serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: 100;
+    background: url(http://www.stackoverflow.com/favicon.ico) 98% / 6% no-repeat #fff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.reisendeTeller {
+    margin: 10px;
+}
+
 input[type="date"] {
     padding: 5px;
-    font: 0.8em Helvetica, serif;
+    width:35%;
+    font: 0.7em Helvetica, serif;
     font-weight: 100;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -88,11 +206,11 @@ input[type="submit"] {
     font: 1.2em Helvetica, serif;
     font-weight: 100;
     letter-spacing: 1px;
-    padding: 5px 15px;
+    padding :5px 15px;
     background: #946351; /*#664438*/
     color: #fff;
     border: 1px solid #000;
-    cursor: pointer;
+    cursor:pointer;
     border-radius: 5px;
 }
 
@@ -103,9 +221,8 @@ input[type="submit"]:hover {
 }
 
 #inputDest {
-    position: relative;
-    top: 10px;
-    padding: 7px 65% 7px 7px;
+    width: 100%;
+    padding: 7px 7px 7px 7px;
     margin-bottom: 5px;
     font: 0.8em Helvetica, serif;
     border: 1px solid #ccc;
@@ -115,7 +232,6 @@ input[type="submit"]:hover {
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
 }
 
 .kal-label {
@@ -128,10 +244,6 @@ input[type="submit"]:hover {
     height: 20px;
     top: 6px;
     margin-right: 3%;
-}
-
-.label1 {
-    margin-right: 100%;
 }
 
 .logo {
@@ -151,7 +263,7 @@ input[type="submit"]:hover {
     width: 100%;
 }
 
-.nav ul, li {
+.nav ul li {
     list-style: none;
     display: inline;
     padding: 0;
@@ -184,7 +296,7 @@ input[type="submit"]:hover {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 131px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 /* Links inside the dropdown */
@@ -197,9 +309,7 @@ input[type="submit"]:hover {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #b5cbf8
-}
+.dropdown-content a:hover {background-color: #b5cbf8}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -220,55 +330,7 @@ footer p {
     padding-bottom: 10px;
 }
 
-/* Paul */
-
-.hide {
-    display: none;
-}
-
-#hytteAlbum {
-    background-image: url("Images/hytte1.jpg");
-    width: 259px;
-    height: 194px;
-}
-
-.item {
-
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-}
-
-.hytteBilder {
-    flex-direction: row;
-    height: 200px;
-    width: 200px;
-}
-
-.hytteBilderClicked{
-
-}
-
-/* John */
-.betaling{
-    background-color: #b3d4fc;
-    border: 2px outset;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
-    width: 72%;
-    height: 40%;
-    margin-left: 14%;
-    margin-top: 2%;
-}
-.prisinfo{
-    background-color: #b3d4fc;
-    border: 2px outset;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
-    width: 72%;
-    height: 40%;
-    margin-left: 14%;
-    margin-top: 2%;
+.disableWindow {
+    pointer-events: none;
+    opacity: 0.6;
 }
