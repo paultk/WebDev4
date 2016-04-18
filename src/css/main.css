@@ -27,7 +27,6 @@ hr {
     color: #333;
     text-align: center;
     width: 100%;
-
 }
 
 .wrapper {
@@ -110,6 +109,34 @@ hr {
     width: 45%;
     margin: 10px 3px 3px 3px;
     font-size: 0.8em;
+}
+
+#overnatting-box-wrapper {
+    width: 50%;
+}
+
+#overnatting-box-wrapper ul {
+    margin-left: 4%;
+    width: 100%;
+    padding: 0;
+}
+
+#overnatting-box-wrapper ul li {
+    list-style: none;
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+#overnatting-box-wrapper img {
+    width: 30%;
+}
+
+#hytteAlbum {
+    background: url("Images/hytte1.jpg");
+    width: 200px;
+    height: 200px;
+    background-size: auto;
 }
 
 #amountOfPassengers {

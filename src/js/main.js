@@ -212,7 +212,71 @@ $(document).ready(function(){
 
     //Avslutt kode for andre behov
 
-    //Oppretter tabs
+    for (var i = 1; i < 7; i++) {
+        $("#tab" + i).hide();
+    }
+
+    $(".hyttelink").click(function () {
+        var tall = this.id.substring(5, 6);
+        $("#tab" + tall).show();
+
+        for (var i = 1; i < 7; i++) {
+            if (i != tall) {
+                $("#tab" + i).hide();
+            }
+        }
+    });
+
+    /*Overnatting, hyttebilder*/
+
+    var imageVariable = 1;
+
+
+    $(".previousPicture").click(function () {
+        if (imageVariable == 1) {
+            imageVariable = 6;
+        }
+        imageVariable--;
+        var element = document.getElementById("hytteAlbum");
+        var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
+        element.setAttribute('style', 'background: url(' + imageUrl + ');');
+    });
+
+    $(".nextPicture").click(function () {
+        if (imageVariable == 6) {
+            imageVariable = 1;
+        }
+        imageVariable++;
+        var element = document.getElementById("hytteAlbum");
+        var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
+        element.setAttribute('style', 'background: url(' + imageUrl + ');');
+    });
+
+    $(".hyttelink").click(function () {
+        console.log(this.id);
+        var chosenCabin = this.id;
+        var txt = "";
+        $.ajax({
+            type: "GET",
+            url: "hytter.xml",
+            dataType: "xml",
+            success: function (xml) {
+                txt += "<div id='hytteValgt'>";
+                $(xml).find(chosenCabin).each(function () {
+                    txt += "<h1>" + $(this).find("navn").text() +
+                        "</h1><div>" + $(this).find("info").text() +
+                        "</div>";
+                });
+                txt += "</div>";
+                console.log(txt);
+                $(".hytteValgt").html(txt);
+
+            }
+
+        });
+    })
+
+    //
 
     $(function () {
        $("#tabs").tabs();
