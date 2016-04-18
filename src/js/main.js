@@ -12,6 +12,8 @@ $(document).ready(function () {
     var traveller8 = null;
     var traveller9 = null;
 
+    var travellers = [];
+
     var travellerSelector = document.getElementById("travellerSelector");
 
 
