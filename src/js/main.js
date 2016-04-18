@@ -116,11 +116,11 @@ $(document).ready(function(){
         for (var i = 0; i <= antReisende; i++) {
             if ($("#travellerSelector" + (i)).val() == "Voksen") {
                 struktur.voksen++;
-            } else if ($("#travellerSelector" + (i)).val() == "Barn") {
+            } else if ($("#travellerSelector" + i).val() == "Barn") {
                 struktur.barn++;
-            } else if ($("#travellerSelector" + (i)).val() == "Honnør") {
+            } else if ($("#travellerSelector" + i).val() == "Honnør") {
                 struktur.honnor++;
-            } else if ($("#travellerSelector" + (i)).val() == "Student") {
+            } else if ($("#travellerSelector" + i).val() == "Student") {
                 struktur.student++;
             }
         }
@@ -140,7 +140,7 @@ $(document).ready(function(){
             }
 
             for (var i = 0; i < antReisende; i++) {
-                $("#travellerSelector" + (i)).show();
+                $("#travellerSelector" + (i + 1)).show();
                 $("#amountOfPassengers:text").val(i + 1);
             }
         });
@@ -156,7 +156,7 @@ $(document).ready(function(){
 
     var rChecked = false;
     var kChecked = false;
-    
+
     struktur.rullestol = false;
     struktur.kjaeledyr = false;
 
