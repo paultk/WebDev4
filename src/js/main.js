@@ -204,5 +204,11 @@ $(document).ready(function(){
     });
 
     //Avslutt kode for andre behov
+
+    //Oppretter tabs
+
+    $(function () {
+       $("#tabs").tabs();
+    });
 });
 
