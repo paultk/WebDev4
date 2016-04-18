@@ -34,8 +34,16 @@
                                     <a href="hemsedal.html">Hemsedal</a>
                                 </div>
                             </div></li>
-                            <li><div class="dropdown"><button class="btn">Priser</button></div></li>
-                            <li><div class="dropdown"><button class="btn">Om oss</button></div></li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn" onclick="location.href='priser.html';">Priser</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn" onclick="location.href='about.html';">Om oss</button>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -55,7 +63,7 @@
     <div class="order-row">
         <div class="bestilling-wrapper">
             <form name="bestilling"
-                  action=""
+                  action="bestilling.html"
                   onsubmit="return validerSkjema();"
                   method="post">
                 <ul class="bestilling-liste">

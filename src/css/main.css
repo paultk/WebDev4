@@ -334,3 +334,14 @@ footer p {
     pointer-events: none;
     opacity: 0.6;
 }
+
+.betaling, .infopanel{
+    background-color: #b3d4fc;
+    border: 2px outset;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    width: 72%;
+    height: 40%;
+    margin-left: 10%;
+    margin-top: 14%;
+}
