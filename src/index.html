@@ -8,7 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <script src="js/js.cookie.js"></script>
+        <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/main.css">
@@ -181,6 +183,45 @@
             <div class="overnatting-box" id="overnatting">
                 <h3>Overnatting:</h3>
                 <hr>
+                <select name="bakkeValg" id="bakkePosisjon">
+                    <option value="Voksen">Toppen</option>
+                    <option value="Barn">Midten</option>
+                    <option value="Honnør">Bunn</option>
+                </select>
+                <div class="container">
+                    <div id="hytte1" class="item, hytteBilderClicked">
+                        <h1>Hemsedal</h1>
+                        <img src="css/Images/hytte1.jpg"/>
+                    </div>
+                    <div id="hytte2" class="item, hytteBilderClicked">
+                        <h1>Åre</h1>
+                        <img src="css/Images/hytte2.jpg"/>
+                    </div>
+                    <div id="hytte3" class="item, hytteBilderClicked">
+                        <h1>Trysil</h1>
+                        <img src="css/Images/hytte3.jpg"/>
+                    </div>
+                </div>
+                <div class="container">
+                    <button id="previousPicture" type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                    <div id="hytteAlbum">
+                    </div>
+                    <button type="button" class="btn btn-default btn-sm">
+                        <span id="nextPicture" class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    <form>
+                        <select name="Laken" id="lakenValg">
+                            <option value="Inkludert">Laken inkludert</option>
+                            <option value="Ekskludert">Laken eksludert</option>
+                        </select>
+                    </form>
+                    <div
+                    <>
+                    <div id="hytteValgt">sdfsdffsdfsd</div>
+                    <button>Velg denne hytten</button>
+                </div>
             </div>
         </div>
 
