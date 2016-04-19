@@ -2,22 +2,13 @@ $(document).ready(function(){
 
     var struktur = {};
 
-    //Input[type=date] endringer
-
     var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //Januar er 0
-    var yyyy = today.getFullYear();
-    if(dd<10){dd='0'+dd}
-    if(mm<10){mm='0'+mm}
-
-    today = yyyy+'-'+mm+'-'+dd;
-
     var tomorrow = new Date();
-    tomorrow = yyyy+'-'+mm+'-'+(dd + 1);
+    tomorrow.setDate(today.getDate() + 1);
+    console.log(tomorrow);
 
-    $("#inputKalFra").val(today);
-    $("#inputKalTil").val(tomorrow);
+    $("#inputKalFra").val(today.toISOString().substring(0, 10));
+    $("#inputKalTil").val(tomorrow.toISOString().substring(0, 10));
 
     $("#inputKalFra").prop("min", today);
     $("#inputKalTil").prop("min", tomorrow);
@@ -27,12 +18,34 @@ $(document).ready(function(){
 
     $("#inputKalFra").on("input", function () {
         struktur.fraReise = document.getElementById("inputKalFra").value;
+        var date1 = new Date(struktur.fraReise);
+        var date2 = new Date(struktur.tilReise);
+        var timeDiff = date2.getTime() - date1.getTime();
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if(diffDays < 0)
+            $("#feildato").text("Vennligst velg en dato etter reisedato!");
+        else if(diffDays < 3)
+            $("#feildato").text("Reisen din er for kort!");
+        else
+            $("#feildato").text("");
         console.log(struktur.fraReise + ", " + struktur.tilReise);
+        sessionStorage.setItem("fraReise",struktur.fraReise);
     });
 
     $("#inputKalTil").on("input", function () {
         struktur.tilReise = document.getElementById("inputKalTil").value;
+        var date1 = new Date(struktur.fraReise);
+        var date2 = new Date(struktur.tilReise);
+        var timeDiff = date2.getTime() - date1.getTime();
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if(diffDays < 0)
+            $("#feildato").text("Vennligst velg en dato etter reisedato!");
+        else if(diffDays < 3)
+            $("#feildato").text("Reisen din er for kort!");
+        else
+            $("#feildato").text("");
         console.log(struktur.fraReise + ", " + struktur.tilReise);
+        sessionStorage.setItem("tilReise",struktur.tilReise);
     });
 
     //Avslutt Input[type=date] endringer
@@ -294,7 +307,8 @@ $(document).ready(function(){
         }
         $("#sumlabel").text("Sum: " + sum + "kr");
     });
-    $("#sumlabel").replaceWith("Voksne: " + sessionStorage.getItem("voksen") + "<br>Barn: " + sessionStorage.getItem("barn") +
-    "<br>Honnører: " + sessionStorage.getItem("honnor") + "<br>Studenter: " + sessionStorage.getItem("student"));
+    $("#reisepris").html("Voksne: " + sessionStorage.getItem("voksen") + "<br>Barn: " + sessionStorage.getItem("barn") +
+    "<br>Honnører: " + sessionStorage.getItem("honnor") + "<br>Studenter: " + sessionStorage.getItem("student") +
+        "<br>Fra: " + sessionStorage.getItem("fraReise") + "<br>Til: " + sessionStorage.getItem("tilReise"));
 });
 
