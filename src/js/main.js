@@ -5,7 +5,6 @@ $(document).ready(function(){
     var today = new Date();
     var tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
-    console.log(tomorrow);
 
     $("#inputKalFra").val(today.toISOString().substring(0, 10));
     $("#inputKalTil").val(tomorrow.toISOString().substring(0, 10));
@@ -28,7 +27,6 @@ $(document).ready(function(){
             $("#feildato").text("Reisen din er for kort!");
         else
             $("#feildato").text("");
-        console.log(struktur.fraReise + ", " + struktur.tilReise);
         sessionStorage.setItem("fraReise",struktur.fraReise);
     });
 
@@ -44,7 +42,6 @@ $(document).ready(function(){
             $("#feildato").text("Reisen din er for kort!");
         else
             $("#feildato").text("");
-        console.log(struktur.fraReise + ", " + struktur.tilReise);
         sessionStorage.setItem("tilReise",struktur.tilReise);
     });
 
@@ -85,7 +82,6 @@ $(document).ready(function(){
     for (var i = 0; i < liste.length; i++) {
         if (i != 0) {
             $("#travellerSelector" + (i+1)).hide();
-            console.log(i);
         }
     }
 
@@ -141,13 +137,6 @@ $(document).ready(function(){
         sessionStorage.setItem("barn", struktur.barn);
         sessionStorage.setItem("honnor", struktur.honnor);
         sessionStorage.setItem("student", struktur.student);
-
-
-
-        console.log("Voksen: " + struktur.voksen);
-        console.log("Barn: " + struktur.barn);
-        console.log("Honnør: " + struktur.honnor);
-        console.log("Student: " + struktur.student);
     });
 
     $("#avbrytReisende").click(function () {
@@ -266,7 +255,6 @@ $(document).ready(function(){
     });
 
     $(".hyttelink").click(function () {
-        console.log(this.id);
         var chosenCabin = this.id;
         var txt = "";
         $.ajax({
@@ -281,7 +269,6 @@ $(document).ready(function(){
                         "</div>";
                 });
                 txt += "</div>";
-                console.log(txt);
                 $(".hytteValgt").html(txt);
 
             }
