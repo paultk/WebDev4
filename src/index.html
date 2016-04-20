@@ -79,10 +79,12 @@
                             <option value="hemsedal">Hemsedal</option>
                     </select></li>
                     <hr>
-                    <li><label>Reisende: </label><span class="bold"><label id="reisendeLabel"></label></span><a href="#" id="endreReisende" class="endreKnapp">Endre</a></li>
+                    <li><label>Reisende: </label>
+                        <span class="bold"><label id="reisendeLabel"></label></span><a href="#" id="endreReisende" class="endreKnapp">Endre</a></li>
                     <li><label>Andre behov: </label><a href="#" id="endreAndreBehov" class="endreKnapp">Endre</a><br>
-                        <span class="bold"><label id="rullestolLabel">Rullestol </label><label id="kjaeledyrlLabel">Kjæledyr</label></span></li>
-                    <li><label>Overnatting: </label><a href="#" id="endreOvernatting" class="endreKnapp">Endre</a></li>
+                        <span class="bold"><label id="rullestolLabel">Rullestol</label><label id="kjaeledyrlLabel">Kjæledyr</label></span></li>
+                    <li><label>Overnatting: </label>
+                        <span class="bold"><label id="overnattingLabel"></label></span><a href="#" id="endreOvernatting" class="endreKnapp">Endre</a></li>
                     <hr>
                     <li><input type="submit" value="Gå til betaling"></li>
                 </ul>
@@ -178,29 +180,33 @@
 
         <div class="content-shower" id="overnatting-box-wrapper">
             <div class="overnatting-box" id="overnatting">
-                <h3>Overnatting:</h3>
+                <h3>Velg en:</h3>
                 <hr>
                 <ul>
-                    <li><a href="#" class="hyttelink" id="hytte1"><img src="js/images/hytte1.jpg"></a></li>
-                    <li><a href="#" class="hyttelink" id="hytte2"><img src="js/images/hytte2.jpg"></a></li>
-                    <li><a href="#" class="hyttelink" id="hytte3"><img src="js/images/hytte3.jpg"></a></li>
+                    <li><div class="hyttelink" id="hytte1"><img src="js/images/hytte1.jpg"></div></li>
+                    <li><div class="hyttelink" id="hytte2"><img src="js/images/hytte2.jpg"></div></li>
+                    <li><div class="hyttelink" id="hytte3"><img src="js/images/hytte3.jpg"></div></li>
                 </ul>
-                <div id="tab1">
-                    <div id="slideshow1">
+                <hr>
+                <div id="tab">
+                    <div id="slideshow">
                         <div class="container">
-                            <button class="previousPicture svartKnapp">-</button>
-                            <div class="hytteAlbum"></div>
-                            <button class="nextPicture svartKnapp">+</button>
-                            <div class="hytteValgt">sdfsdffsdfsd</div>
-                            <button class="svartKnapp">Velg denne hytten</button>
+                            <div class="hytteValgt"></div>
+                            <div id="galleryBtn">
+                                <button class="previousPicture svartKnapp"><--</button>
+                                <button class="nextPicture svartKnapp">--></button>
+                            </div>
+                                <div class="hytteAlbum"><img id="slider" src="js/Images/hytte4.jpg"></div>
+                            <button id="velgHytteKnapp" class="velgHytte svartKnapp">Velg denne hytten</button>
                         </div>
-                    </div></div>
-                <div id="tab2">
+                    </div>
+                </div>
+                <!--<div id="tab2">
                     <div id="slideshow2">
                         <div class="container">
                             <button class="previousPicture svartKnapp">-</button>
                             <div class="hytteAlbum"></div>
-                            <button type="button" class="nextPicture svartKnapp" >+</button>
+                            <button class="nextPicture svartKnapp" >+</button>
 
                             <div class="hytteValgt">sdfsdffsdfsd</div>
                             <button class="svartKnapp">Velg denne hytten</button>
@@ -210,15 +216,14 @@
                 <div id="tab3">
                     <div id="slideshow3">
                         <div class="container">
+                            <div class="hytteValgt"></div>
                             <button class="previousPicture svartKnapp">-</button>
                             <div class="hytteAlbum"></div>
                             <button class="nextPicture svartKnapp" >+</button>
-
-                            <div class="hytteValgt"></div>
                             <button class="svartKnapp">Velg denne hytten</button>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <button class="svartKnapp" id="avbrytOvernatting">Avbryt</button>
             </div>
         </div>

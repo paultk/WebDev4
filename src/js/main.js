@@ -63,7 +63,7 @@ $(document).ready(function(){
 
     $("#endreOvernatting").click(function () {
         $("#overnatting-box-wrapper").slideToggle();
-        //$(".bestilling-wrapper").toggleClass("disableWindow");
+        $(".bestilling-wrapper").toggleClass("disableWindow");
     });
 
     //Avslutt kode for vise/skjule endre-vinduer
@@ -203,59 +203,54 @@ $(document).ready(function(){
                 $("#cbRullestol").prop("checked", false);
             }
 
-            if (kChecked == 1) {
-                $("#cbKjaeledyr").prop("checked", true);
-            } else {
-                $("#cbKjaeledyr").prop("checked", false);
-            }
+        if (kChecked == 1) {
+            $("#cbKjaeledyr").prop("checked", true);
+        } else {
+            $("#cbKjaeledyr").prop("checked", false);
+        }
         });
         $(".bestilling-wrapper").toggleClass("disableWindow");
     });
 
     //Avslutt kode for andre behov
-
-    for (var i = 1; i < 7; i++) {
-        $("#tab" + i).hide();
-    }
-
-    $(".hyttelink").click(function () {
-        var tall = this.id.substring(5, 6);
-        $("#tab" + tall).show();
-
-        for (var i = 1; i < 7; i++) {
-            if (i != tall) {
-                $("#tab" + i).hide();
-            }
-        }
-    });
-
+    
     /*Overnatting, hyttebilder*/
 
-    var imageVariable = 1;
-
+    $(".previousPicture, .nextPicture, .hytteAlbum, .velgHytte").hide();
+    var imageVariable = 4;
 
     $(".previousPicture").click(function () {
-        if (imageVariable == 1) {
+        if (imageVariable == 4) {
             imageVariable = 6;
+            var element = document.getElementById("slider");
+            var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
+            $(element).prop("src", imageUrl);
+        } else {
+            imageVariable--;
+            var element = document.getElementById("slider");
+            var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
+            $(element).prop("src", imageUrl);
         }
-        imageVariable--;
-        var element = document.getElementById("hytteAlbum");
-        var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
-        element.setAttribute('style', 'background: url(' + imageUrl + ');');
     });
 
     $(".nextPicture").click(function () {
         if (imageVariable == 6) {
-            imageVariable = 1;
+            imageVariable = 3;
         }
         imageVariable++;
-        var element = document.getElementById("hytteAlbum");
+        var element = document.getElementById("slider");
         var imageUrl = 'js/Images/hytte' + imageVariable + '.jpg';
-        element.setAttribute('style', 'background: url(' + imageUrl + ');');
+        $(element).prop("src", imageUrl);
     });
 
+    var chosenCabin;
+    var forrigeHytte;
+    struktur.hytte = "";
+
     $(".hyttelink").click(function () {
-        var chosenCabin = this.id;
+        $(".previousPicture, .nextPicture, .hytteAlbum, .velgHytte, #hytteValgt").show();
+        console.log(this.id);
+        chosenCabin = this.id;
         var txt = "";
         $.ajax({
             type: "GET",
@@ -265,22 +260,52 @@ $(document).ready(function(){
                 txt += "<div id='hytteValgt'>";
                 $(xml).find(chosenCabin).each(function () {
                     txt += "<h1>" + $(this).find("navn").text() +
-                        "</h1><div>" + $(this).find("info").text() +
-                        "</div>";
+                        "</h1><h3>" + $(this).find("bakkeplassering").text() + "</h3><div><p>" + $(this).find("info").text() +
+                        "</p></div>";
                 });
                 txt += "</div>";
                 $(".hytteValgt").html(txt);
 
             }
-
         });
-    })
+    });
+
+    $("#avbrytOvernatting").click(function () {
+        $("#overnatting-box-wrapper").slideToggle("medium", function () {
+            if (chosenCabin != forrigeHytte) {
+                var txt = "";
+                $.ajax({
+                    type: "GET",
+                    url: "hytter.xml",
+                    dataType: "xml",
+                    success: function (xml) {
+                        txt += "<div id='hytteValgt'>";
+                        $(xml).find(forrigeHytte).each(function () {
+                            txt += "<h1>" + $(this).find("navn").text() +
+                                "</h1><h3>" + $(this).find("bakkeplassering").text() + "</h3><div><p>" + $(this).find("info").text() +
+                                "</p></div>";
+                        });
+                        txt += "</div>";
+                        console.log(txt);
+                        $(".hytteValgt").html(txt);
+
+                    }
+                });
+            }
+        });
+        $(".bestilling-wrapper").toggleClass("disableWindow");
+    });
+
+    $("#velgHytteKnapp").click(function () {
+        forrigeHytte = chosenCabin;
+        struktur.hytte = forrigeHytte;
+        $("#overnatting-box-wrapper").slideToggle();
+        $(".bestilling-wrapper").toggleClass("disableWindow");
+        $("#overnattingLabel").text("Luksushytte - type " + chosenCabin.substring(5, 6));
+    });
 
     //
 
-    $(function () {
-       $("#tabs").tabs();
-    });
     $(".tilleggsvalg").change(function(){
         var sum = 0;
         if ($("#laken").is(':checked')) {

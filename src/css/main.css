@@ -6,10 +6,15 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: url("bg.jpg");
+    background: url("bg.jpg") fixed;
     background-size: cover;
     font-family: Helvetica, serif;
     font-weight: 100;
+}
+
+h1 {
+    font-family: Helvetica, serif;
+    font-weight: 500;
 }
 
 h3 {
@@ -113,6 +118,7 @@ hr {
 
 #overnatting-box-wrapper {
     width: 50%;
+    margin-bottom: 25px;
 }
 
 #overnatting-box-wrapper ul {
@@ -128,15 +134,47 @@ hr {
     margin: 0;
 }
 
-#overnatting-box-wrapper img {
-    width: 30%;
+.hyttelink {
+    display: inline;
+    cursor: pointer;
 }
 
-#hytteAlbum {
-    background: url("Images/hytte1.jpg");
-    width: 200px;
-    height: 200px;
-    background-size: auto;
+.hyttelink img {
+    width: 30%;
+    border: 1px solid #333333;
+    border-radius: 2px;
+}
+
+#galleryBtn {
+    margin-left: 35%;
+}
+
+#galleryBtn .svartKnapp {
+    margin: 0px 0 8px 0;
+    width: 93px;
+}
+
+.previousPicture {
+    margin-left: 25%;
+}
+
+#slider {
+    width: 80%;
+    height: auto;
+    float: left;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    border: 1px solid #333333;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+#velgHytteKnapp {
+    margin-left: 30%;
+    float: left;
+}
+
+#avbrytOvernatting {
+    float: left;
 }
 
 #amountOfPassengers {
@@ -369,6 +407,7 @@ footer p {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
     width: 72%;
     height: 40%;
-    margin-left: 10%;
-    margin-top: 14%;
+    margin: 10% auto auto auto;
+    padding: 0 30px 0 30px;
+
 }
