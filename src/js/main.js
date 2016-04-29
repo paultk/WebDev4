@@ -2,6 +2,8 @@ $(document).ready(function(){
 
     var struktur = {};
 
+    $(".submit").addClass("disableWindow");
+
     var today = new Date();
     var tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
@@ -14,6 +16,7 @@ $(document).ready(function(){
 
     struktur.fraReise = today;
     struktur.tilReise = tomorrow;
+
 
     $("#inputKalFra").on("input", function () {
         struktur.fraReise = document.getElementById("inputKalFra").value;
@@ -28,6 +31,7 @@ $(document).ready(function(){
         else
             $("#feildato").text("");
         sessionStorage.setItem("fraReise",struktur.fraReise);
+        validerInfo();
     });
 
     $("#inputKalTil").on("input", function () {
@@ -43,9 +47,22 @@ $(document).ready(function(){
         else
             $("#feildato").text("");
         sessionStorage.setItem("tilReise",struktur.tilReise);
+        validerInfo();
     });
 
     //Avslutt Input[type=date] endringer
+
+    //Lagre destinasjonsinput
+
+    struktur.dest = "";
+
+    $("#inputDest").change(function () {
+        struktur.dest = $(this).val();
+        console.log(struktur.dest);
+        validerInfo();
+    });
+
+    //Avslutt destinasjonsinput
 
     //Vise/skjule endre-vinduer
 
@@ -137,6 +154,7 @@ $(document).ready(function(){
         sessionStorage.setItem("barn", struktur.barn);
         sessionStorage.setItem("honnor", struktur.honnor);
         sessionStorage.setItem("student", struktur.student);
+        validerInfo();
     });
 
     $("#avbrytReisende").click(function () {
@@ -306,8 +324,20 @@ $(document).ready(function(){
         $("#overnatting-box-wrapper").slideToggle();
         $(".bestilling-wrapper").toggleClass("disableWindow");
         $("#overnattingLabel").text("Luksushytte - type " + valgtHytte.substring(5, 6));
+        validerInfo();
     });
 
+    //Funksjon som sjekker om nødvendig info er fylt ut før man kan gå til betaling
+
+    function validerInfo() {
+        if (struktur.fraReise == "" || struktur.tilReise == "" || struktur.dest == "default" ||
+            struktur.dest == "" || struktur.barn == 0 && struktur.honnor == 0 &&
+            struktur.student == 0 && struktur.voksen == 0 || struktur.hytte == "") {
+            $(".submit").addClass("disableWindow");
+        } else {
+            $(".submit").removeClass("disableWindow");
+        }
+    }
     //
 
     $(".tilleggsvalg").change(function(){
