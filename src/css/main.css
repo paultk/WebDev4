@@ -561,3 +561,11 @@ footer p {
     height: 450px;
     margin-left: 10%;
 }
+
+.infopanel img, .infopanel iframe {
+    margin-bottom: 20px;
+}
+
+.infopanel img {
+    border: 2px inset;
+}

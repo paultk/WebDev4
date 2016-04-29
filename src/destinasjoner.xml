@@ -4,27 +4,24 @@
         <navn>Åre</navn>
         <info>Lorem ipsum dolor sit amet, nihil principes et quo, meliore ponderum cum an. Vel ea aperiri liberavisse accommodare, omnium erroribus quo eu. Has at lorem admodum percipitur, euismod deserunt mel in. Te mel porro vocibus, quas saperet eum eu, ea usu dicit feugait docendi. Essent delicatissimi eos cu.
             Ad mei summo menandri gubergren, usu an justo voluptua tacimates. Ad assueverit interpretaris eum, altera oblique pri ut. Mei ne nisl sententiae, mea ut saperet delicatissimi. Id quo postea saperet voluptaria. Assum impetus accusam pri no, sit ipsum graecis te. Sit ne wisi inciderint quaerendum, paulo detracto in vix, usu suscipit copiosae te.
-            Ta en titt på innsiden av hytten nedenfor.
         </info>
-        <map>https://www.google.no/maps/place/åre</map>
-        <picture>/js/Images/aarepic.jpg</picture>
+        <map>https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14293.23129562395!2d13.06174569329469!3d63.397165296499665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x466e08d48ff233db%3A0x4034506de8c8460!2zw4VyZSwgODMwIDEzIMOFcmUsIFN2ZXJpZ2U!5e0!3m2!1sno!2sno!4v1461955137560</map>
+        <picture>js/Images/aarepic.jpg</picture>
     </aare>
     <trysil>
         <navn>Trysil</navn>
         <info>Lorem ipsum dolor sit amet, nihil principes et quo, meliore ponderum cum an. Vel ea aperiri liberavisse accommodare, omnium erroribus quo eu. Has at lorem admodum percipitur, euismod deserunt mel in. Te mel porro vocibus, quas saperet eum eu, ea usu dicit feugait docendi. Essent delicatissimi eos cu.
             Ad mei summo menandri gubergren, usu an justo voluptua tacimates. Ad assueverit interpretaris eum, altera oblique pri ut. Mei ne nisl sententiae, mea ut saperet delicatissimi. Id quo postea saperet voluptaria. Assum impetus accusam pri no, sit ipsum graecis te. Sit ne wisi inciderint quaerendum, paulo detracto in vix, usu suscipit copiosae te.
-            Ta en titt på innsiden av hytten nedenfor.
         </info>
-        <map>https://www.google.no/maps/place/trysil</map>
-        <picture>/js/Images/trysilpic.jpg</picture>
+        <map>https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d489627.2360674317!2d11.74362147892019!3d61.35561866489053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46699a0c9b1a373d%3A0x73bea2a938e28d96!2sTrysil!5e0!3m2!1sno!2sno!4v1461956294753</map>
+        <picture>js/Images/trysilpic.jpg</picture>
     </trysil>
     <hemsedal>
         <navn>Hemsedal</navn>
         <info>Lorem ipsum dolor sit amet, nihil principes et quo, meliore ponderum cum an. Vel ea aperiri liberavisse accommodare, omnium erroribus quo eu. Has at lorem admodum percipitur, euismod deserunt mel in. Te mel porro vocibus, quas saperet eum eu, ea usu dicit feugait docendi. Essent delicatissimi eos cu.
             Ad mei summo menandri gubergren, usu an justo voluptua tacimates. Ad assueverit interpretaris eum, altera oblique pri ut. Mei ne nisl sententiae, mea ut saperet delicatissimi. Id quo postea saperet voluptaria. Assum impetus accusam pri no, sit ipsum graecis te. Sit ne wisi inciderint quaerendum, paulo detracto in vix, usu suscipit copiosae te.
-            Ta en titt på innsiden av hytten nedenfor.
         </info>
-        <map>https://www.google.no/maps/place/hemsedal</map>
-        <picture>/js/Images/hemsedalpic.jpg</picture>
+        <map>https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248152.39984368422!2d8.199758449517812!3d60.927922451185346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463fddaccecb27e1%3A0x5d39ed5d9b32afdc!2sHemsedal!5e0!3m2!1sno!2sno!4v1461956252819</map>
+        <picture>js/Images/hemsedalpic.jpg</picture>
     </hemsedal>
 </hyttene>

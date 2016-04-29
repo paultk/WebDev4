@@ -423,5 +423,34 @@ $(document).ready(function(){
         }
         $("#sumlabel").text(sum + " kr");
     });
+
+    // Destinasjoner
+    struktur.currentDestinasjon = "";
+
+    $(".dropdown-dest").click(function () {
+        struktur.currentDestinasjon = this.id;
+        sessionStorage.setItem("currentDest",struktur.currentDestinasjon);
+    });
+
+    //$(".dropdown-dest").click(function () {
+        var txt = "";
+        $.ajax({
+            type: "GET",
+            url: "destinasjoner.xml",
+            dataType: "xml",
+            success: function (xml) {
+                txt += "<div id='destinasjon'>";
+                $(xml).find(sessionStorage.getItem("currentDest")).each(function () {
+                    txt += "<h1>" + $(this).find("navn").text() +
+                        "</h1><div><p>" + $(this).find("info").text() +
+                        "</p><img src='" + $(this).find("picture").text() + "' width='100%' height='auto'><iframe src='" + $(this).find("map").text() + "' width='600' height='450' allowfullscreen></iframe></div>";
+                    hyttePrisen = parseInt($(this).find("pris").text());
+                });
+                txt += "</div>";
+                $("#destinasjon").html(txt);
+
+            }
+        });
+    //});
 });
 
