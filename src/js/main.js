@@ -14,9 +14,11 @@ $(document).ready(function(){
     $("#inputKalFra").prop("min", today);
     $("#inputKalTil").prop("min", tomorrow);
 
-    struktur.fraReise = today;
-    struktur.tilReise = tomorrow;
+    struktur.fraReise = today.toISOString().substring(0, 10);
+    struktur.tilReise = tomorrow.toISOString().substring(0, 10);
 
+    sessionStorage.setItem("fraReise",struktur.fraReise);
+    sessionStorage.setItem("tilReise",struktur.tilReise);
 
     $("#inputKalFra").on("input", function () {
         struktur.fraReise = document.getElementById("inputKalFra").value;
@@ -24,12 +26,15 @@ $(document).ready(function(){
         var date2 = new Date(struktur.tilReise);
         var timeDiff = date2.getTime() - date1.getTime();
         var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        if(diffDays < 0)
-            $("#feildato").text("Vennligst velg en dato etter reisedato!");
+        console.log(diffDays);
+        if(diffDays < 0) {
+            console.log("hei");
+            $("#feilDato").text("Vennligst velg en dato etter reisedato!");
+        }
         else if(diffDays < 3)
-            $("#feildato").text("Reisen din er for kort!");
+            $("#feilDato").text("Reisen din er for kort!");
         else
-            $("#feildato").text("");
+            $("#feilDato").text("");
         sessionStorage.setItem("fraReise",struktur.fraReise);
         validerInfo();
     });
@@ -40,12 +45,14 @@ $(document).ready(function(){
         var date2 = new Date(struktur.tilReise);
         var timeDiff = date2.getTime() - date1.getTime();
         var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        if(diffDays < 0)
-            $("#feildato").text("Vennligst velg en dato etter reisedato!");
-        else if(diffDays < 3)
-            $("#feildato").text("Reisen din er for kort!");
+        console.log(diffDays);
+        if(diffDays < 0) {
+            console.log("hei");
+            $("#feilDato").text("Vennligst velg en dato etter reisedato!");
+        } else if(diffDays < 3)
+            $("#feilDato").text("Reisen din er for kort!");
         else
-            $("#feildato").text("");
+            $("#feilDato").text("");
         sessionStorage.setItem("tilReise",struktur.tilReise);
         validerInfo();
     });
@@ -263,7 +270,9 @@ $(document).ready(function(){
 
     var currentCabin;
     var valgtHytte = "";
+    var hyttePrisen = 0;
     struktur.hytte = "";
+    struktur.hyttePris = 0;
 
     $(".hyttelink").click(function () {
         $(".previousPicture, .nextPicture, .hytteAlbum, .velgHytte, #hytteValgt").show();
@@ -280,6 +289,7 @@ $(document).ready(function(){
                     txt += "<h1>" + $(this).find("navn").text() +
                         "</h1><h3>" + $(this).find("bakkeplassering").text() + "</h3><div><p>" + $(this).find("info").text() +
                         "</p></div>";
+                    hyttePrisen = parseInt($(this).find("pris").text());
                 });
                 txt += "</div>";
                 console.log(txt);
@@ -320,10 +330,15 @@ $(document).ready(function(){
 
     $("#velgHytteKnapp").click(function () {
         valgtHytte = currentCabin;
-        struktur.hytte = valgtHytte;
+
         $("#overnatting-box-wrapper").slideToggle();
         $(".bestilling-wrapper").toggleClass("disableWindow");
         $("#overnattingLabel").text("Luksushytte - type " + valgtHytte.substring(5, 6));
+        struktur.hytte = "Luksushytte - type " + valgtHytte.substring(5, 6);
+        struktur.hyttePris = hyttePrisen;
+        sessionStorage.setItem("hytte",struktur.hytte);
+        sessionStorage.setItem("hyttePris",struktur.hyttePris);
+
         validerInfo();
     });
 
@@ -332,29 +347,81 @@ $(document).ready(function(){
     function validerInfo() {
         if (struktur.fraReise == "" || struktur.tilReise == "" || struktur.dest == "default" ||
             struktur.dest == "" || struktur.barn == 0 && struktur.honnor == 0 &&
-            struktur.student == 0 && struktur.voksen == 0 || struktur.hytte == "") {
+            struktur.student == 0 && struktur.voksen == 0 || struktur.hytte == "" ||
+            $("#feilDato").val() != "") {
             $(".submit").addClass("disableWindow");
         } else {
             $(".submit").removeClass("disableWindow");
         }
     }
+
     //
 
-    $(".tilleggsvalg").change(function(){
-        var sum = 0;
+    var sum = 0;
+    var faktor = 1;
+    var reisende = parseInt(sessionStorage.getItem("voksen")) + parseInt(sessionStorage.getItem("barn")) + parseInt(sessionStorage.getItem("honnor")) +
+        parseInt(sessionStorage.getItem("student"));
+    var reisendePris = parseInt(sessionStorage.getItem("voksen"))*500 + parseInt(sessionStorage.getItem("barn"))*300 + parseInt(sessionStorage.getItem("honnor")*350) +
+        parseInt(sessionStorage.getItem("student"))*340;
+
+    $("#reiseDatoLabel").text(sessionStorage.getItem("fraReise") + " til " + sessionStorage.getItem("tilReise"));
+    $("#kvitReise").text(reisende + " person(er):");
+    $("#kvitHytte").text(sessionStorage.getItem("hytte") + ": ");
+
+    $("#kvitReisePris").text(reisendePris + " kr");
+    $("#kvitHyttePris").text(sessionStorage.getItem("hyttePris") + " kr");
+
+    sum += reisendePris;
+    sum += parseInt(sessionStorage.getItem("hyttePris"));
+    $("#sumlabel").text(sum + " kr");
+
+    $("#medlem").change(function () {
+        if ($("#medlem").is(':checked')) {
+            $("#laken, #instruktor, #heiskort").addClass("disableWindow");
+            $("#sumlabel").text(Math.round(sum*0.8) + " kr");
+        } else {
+            $("#laken, #instruktor, #heiskort").removeClass("disableWindow");
+            $("#sumlabel").text(sum + " kr");
+        }
+    })
+
+    $("#laken").change(function () {
         if ($("#laken").is(':checked')) {
+            $("#kvitLaken").text("Laken: ");
+            $("#kvitLakenPris").text("40,-");
             sum += 40;
+        } else if (!$("#laken").is(':checked')) {
+            $("#kvitLaken").text("");
+            $("#kvitLakenPris").text("");
+            sum -= 40;
         }
-        if ($("#instruktor").is(':checked')) {
-            sum += 500;
-        }
-        if ($("#heiskort").is(':checked')) {
-            sum += 250;
-        }
-        $("#sumlabel").text("Sum: " + sum + "kr");
+        $("#sumlabel").text(sum + " kr");
     });
-    $("#reisepris").html("Voksne: " + sessionStorage.getItem("voksen") + "<br>Barn: " + sessionStorage.getItem("barn") +
-    "<br>Honnører: " + sessionStorage.getItem("honnor") + "<br>Studenter: " + sessionStorage.getItem("student") +
-        "<br>Fra: " + sessionStorage.getItem("fraReise") + "<br>Til: " + sessionStorage.getItem("tilReise"));
+
+    $("#instruktor").change(function () {
+        if ($("#instruktor").is(':checked')) {
+            $("#kvitInstruktor").text("Instruktør: ");
+            $("#kvitInstruktorPris").text("500,-");
+            sum += 500;
+        } else if (!$("#instruktor").is(':checked')) {
+            $("#kvitInstruktor").text("");
+            $("#kvitInstruktorPris").text("");
+            sum -= 500;
+        }
+        $("#sumlabel").text(sum + " kr");
+    });
+
+    $("#heiskort").change(function () {
+        if ($("#heiskort").is(':checked')) {
+            $("#kvitHeiskort").text("Heiskort: ");
+            $("#kvitHeiskortPris").text("250,-");
+            sum += 250;
+        } else if (!$("#heiskort").is(':checked')) {
+            $("#kvitHeiskort").text("");
+            $("#kvitHeiskortPris").text("");
+            sum -= 250;
+        }
+        $("#sumlabel").text(sum + " kr");
+    });
 });
 

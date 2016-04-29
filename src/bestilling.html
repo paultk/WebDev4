@@ -5,11 +5,8 @@
     <title>Bestilling</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
-    <script src="/path/to/js.cookie.js"></script>
     <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
 </head>
@@ -51,14 +48,71 @@
         </header>
     </div>
     <div class="betaling">
-        <div id="tillegg">
+        <div class="tillegg">
+            <h1>Betaling</h1>
+            <p>Vennligst fyll ut all informasjonen under for å fullføre bestillingen av din reise.</p>
             <ul>
-                <li><input class="tilleggsvalg" id="heiskort" type="checkbox" data-toggle="toggle">Heiskort ( 250kr )</li><br>
-                <li><input class="tilleggsvalg" id="laken" type="checkbox" data-toggle="toggle">Laken ( 40kr )</li><br>
-                <li><input class="tilleggsvalg" id="instruktor" type="checkbox" data-toggle="toggle">Instruktør ( 500kr )</li><br>
-                <li><p id="sumlabel">Sum: 0kr</p></li><br>
-                <li><p id="reisepris">Sum: 0kr</p></li></li>
+                <li><input class="tilleggsvalg" id="heiskort" type="checkbox"> Heiskort - 250,-</li>
+                <li><input class="tilleggsvalg" id="laken" type="checkbox"> Laken - 40,-</li>
+                <li><input class="tilleggsvalg" id="instruktor" type="checkbox"> Instruktør - 500,-</li>
+                <li><input class="tilleggsvalg" id="medlem" type="checkbox"> Medlem - 20% avslag</li>
             </ul>
+            <form name="registrering"
+                  action=""
+                  onSubmit="return validerSkjema();"
+                  method="post">
+
+                <fieldset>
+                    <legend>Personlig informasjon</legend>
+                    <ul>
+                        <li><label for="inputFornavn" >Fornavn<span class="oblig">*</span>:</label></li>
+                        <li><input type="text" name="fornavn" id="inputFornavn" size="13"></li>
+                        <li><label for="inputEtternavn">Etternavn<span class="oblig">*</span>:</label></li>
+                        <li><input type="text" name="etternavn" id="inputEtternavn" size="15"></li>
+                        <li><label for="inputFAar">Fødselsår<span class="oblig">*</span>:</label></li>
+                        <li><select name="FAar" id="inputFAar">
+                            <option value="default">Velg en alder</option>
+                            <option value ="eldre">Eldre</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option>Yngre</option>
+                        </select></li>
+                        <li><label>Kjønn<span class="oblig">*</span>:</label></li>
+                        <li class="inlineKnapper"><input type="radio" name="kjonn" id="kjonnM">Mann
+                            <input type="radio" name="kjonn" id="kjonnF">Kvinne</li>
+                        <li><label for="inputEmail">E-post<span class="oblig">*</span>:</label></li>
+                        <li><input type="text" name="email" id="inputEmail"></li>
+                        <li><input id ="formSubmit" class="formKnapp" type="submit" value="Send inn">
+                            <input class="formKnapp" type="reset" value="Nullstill"></li>
+                    </ul>
+                    <p id="undertekst"><span class="oblig">*</span> = obligatorisk</p>
+                </fieldset>
+
+            </form>
+        </div>
+        <div class="kvittering">
+            <h3>Kvittering</h3>
+            <hr>
+            <ul>
+                <li><label id="reiseDatoLabel"></label></li>
+                <li><label id="kvitReise"></label>
+                    <label class="kvitLabel" id="kvitReisePris"></label></li>
+                <li><label id="kvitHytte"></label>
+                    <label class="kvitLabel" id="kvitHyttePris"></label></li>
+                <li><label id="kvitHeiskort"></label>
+                    <label class="kvitLabel" id="kvitHeiskortPris"></label></li>
+                <li><label id="kvitLaken"></label>
+                    <label class="kvitLabel" id="kvitLakenPris"></label></li>
+                <li><label id="kvitInstruktor"></label>
+                    <label class="kvitLabel" id="kvitInstruktorPris"></label></li>
+            </ul>
+            <hr>
+            <label>Sum:</label>
+            <label class="kvitLabel" id="sumlabel"></label>
         </div>
     </div>
 </body>

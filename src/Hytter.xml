@@ -3,6 +3,7 @@
     <hytte1>
         <navn>Hytte 1</navn>
         <bakkeplassering> - Toppen av bakken</bakkeplassering>
+        <pris>3000</pris>
         <info>Lorem ipsum dolor sit amet, nihil principes et quo, meliore ponderum cum an. Vel ea aperiri liberavisse accommodare, omnium erroribus quo eu. Has at lorem admodum percipitur, euismod deserunt mel in. Te mel porro vocibus, quas saperet eum eu, ea usu dicit feugait docendi. Essent delicatissimi eos cu.
             Ad mei summo menandri gubergren, usu an justo voluptua tacimates. Ad assueverit interpretaris eum, altera oblique pri ut. Mei ne nisl sententiae, mea ut saperet delicatissimi. Id quo postea saperet voluptaria. Assum impetus accusam pri no, sit ipsum graecis te. Sit ne wisi inciderint quaerendum, paulo detracto in vix, usu suscipit copiosae te.
             Ta en titt på innsiden av hytten nedenfor.
@@ -11,6 +12,7 @@
     <hytte2>
         <navn>Hytte 2</navn>
         <bakkeplassering> - Midten av bakken</bakkeplassering>
+        <pris>5500</pris>
         <info>Lorem ipsum dolor sit amet, nihil principes et quo, meliore ponderum cum an. Vel ea aperiri liberavisse accommodare, omnium erroribus quo eu. Has at lorem admodum percipitur, euismod deserunt mel in. Te mel porro vocibus, quas saperet eum eu, ea usu dicit feugait docendi. Essent delicatissimi eos cu.
             Ad mei summo menandri gubergren, usu an justo voluptua tacimates. Ad assueverit interpretaris eum, altera oblique pri ut. Mei ne nisl sententiae, mea ut saperet delicatissimi. Id quo postea saperet voluptaria. Assum impetus accusam pri no, sit ipsum graecis te. Sit ne wisi inciderint quaerendum, paulo detracto in vix, usu suscipit copiosae te.
             Ta en titt på innsiden av hytten nedenfor.
@@ -18,6 +20,7 @@
     </hytte2>
     <hytte3>
         <navn>Hytte 3</navn>
+        <pris>10000</pris>
         <bakkeplassering> - Bunnen av bakken</bakkeplassering>
         <info>Lorem ipsum dolor sit amet, nihil principes et quo, meliore ponderum cum an. Vel ea aperiri liberavisse accommodare, omnium erroribus quo eu. Has at lorem admodum percipitur, euismod deserunt mel in. Te mel porro vocibus, quas saperet eum eu, ea usu dicit feugait docendi. Essent delicatissimi eos cu.
             Ad mei summo menandri gubergren, usu an justo voluptua tacimates. Ad assueverit interpretaris eum, altera oblique pri ut. Mei ne nisl sententiae, mea ut saperet delicatissimi. Id quo postea saperet voluptaria. Assum impetus accusam pri no, sit ipsum graecis te. Sit ne wisi inciderint quaerendum, paulo detracto in vix, usu suscipit copiosae te.
